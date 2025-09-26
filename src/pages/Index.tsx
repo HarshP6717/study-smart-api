@@ -5,6 +5,13 @@ import AuthModal from '@/components/AuthModal';
 import Dashboard from '@/components/Dashboard';
 import Navigation from '@/components/Navigation';
 import SubjectsManager from '@/components/SubjectsManager';
+import QuizManager from '@/components/QuizManager';
+import FlashcardsManager from '@/components/FlashcardsManager';
+import CheatSheetManager from '@/components/CheatSheetManager';
+import ProgressTracker from '@/components/ProgressTracker';
+import StudyTimer from '@/components/StudyTimer';
+import ChatInterface from '@/components/ChatInterface';
+import StoreManager from '@/components/StoreManager';
 import { HeroButton } from '@/components/ui/hero-button';
 import { Brain, BookOpen, Target, Zap, Star, ArrowRight } from 'lucide-react';
 
@@ -143,8 +150,29 @@ const Index = () => {
         {currentSection === 'subjects' && (
           <SubjectsManager />
         )}
-        {/* Other sections will be implemented */}
-        {currentSection !== 'dashboard' && currentSection !== 'subjects' && (
+        {currentSection === 'quiz' && (
+          <QuizManager />
+        )}
+        {currentSection === 'flashcards' && (
+          <FlashcardsManager />
+        )}
+        {currentSection === 'cheatsheets' && (
+          <CheatSheetManager />
+        )}
+        {currentSection === 'progress' && (
+          <ProgressTracker />
+        )}
+        {currentSection === 'study' && (
+          <StudyTimer />
+        )}
+        {currentSection === 'chat' && (
+          <ChatInterface />
+        )}
+        {currentSection === 'store' && (
+          <StoreManager />
+        )}
+        {/* Settings and other sections */}
+        {!['dashboard', 'subjects', 'quiz', 'flashcards', 'cheatsheets', 'progress', 'study', 'chat', 'store'].includes(currentSection) && (
           <div className="p-6 text-center">
             <h2 className="text-2xl font-bold text-muted-foreground">
               {currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} - Coming Soon!
